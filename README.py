@@ -1,8 +1,3 @@
-from flask import Flask, render_template_string
-
-app = Flask(__name__)
-
-html_code = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +6,6 @@ html_code = """
     <title>SEO Services Lab Digital Ltd</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Your CSS (same as in your HTML) */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -35,6 +29,347 @@ html_code = """
             margin: 10px 0 0;
         }
         .hero {
+            background-image: linear-gradient(rgba(0,123,255,0.8), rgba(0,123,255,0.8)), url('https://via.placeholder.com/1200x400?text=Digital+Marketing+Hero+Image');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .hero a {
+            background-color: white;
+            color: #007bff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .about-us, .why-choose, .testimonials, .process {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .about-us h2, .why-choose h2, .testimonials h2, .process h2 {
+            color: #007bff;
+            text-align: center;
+        }
+        .why-choose ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .why-choose li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .why-choose li::before {
+            content: "✓";
+            color: #007bff;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .process-step {
+            text-align: center;
+        }
+        .process-step i {
+            font-size: 3em;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .testimonial {
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .testimonial p {
+            font-style: italic;
+        }
+        .testimonial cite {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .service {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .service:hover {
+            transform: translateY(-5px);
+        }
+        .service h3 {
+            margin-top: 0;
+            color: #007bff;
+            font-size: 1.5em;
+        }
+        .service i {
+            font-size: 3em;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .contact {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .contact h2 {
+            margin: 0;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        footer .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        footer .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+        }
+        footer h3 {
+            color: #007bff;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        footer .social-icons a {
+            margin: 0 10px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SEO Services Lab Digital Ltd</h1>
+        <p>Your Partner in Digital Marketing Excellence</p>
+    </header>
+
+    <section class="hero">
+        <h2>Boost Your Online Presence Today</h2>
+        <p>Discover how our expert digital marketing services can drive growth, increase visibility, and maximize your ROI.</p>
+        <a href="#contact">Get Started</a>
+    </section>
+
+    <div class="container">
+        <section class="about-us">
+            <h2>About Us</h2>
+            <p>SEO Services Lab Digital Ltd is a leading digital marketing agency dedicated to helping businesses thrive in the online world. Founded in 2015, we have a team of over 50 experienced professionals specializing in SEO, social media, content creation, and more. Our mission is to deliver innovative, results-driven solutions tailored to your unique needs. We believe in building long-term partnerships with our clients, ensuring sustainable growth through data-driven strategies and cutting-edge technology. Whether you're a startup looking to establish your brand or an established company aiming to dominate your niche, we're here to guide you every step of the way.</p>
+            <p>Our core values include integrity, innovation, and excellence. We stay ahead of industry trends to provide the best services possible, helping businesses of all sizes achieve their digital marketing goals.</p>
+        </section>
+
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="service">
+                <i class="fas fa-search"></i>
+                <h3>Search Engine Optimization (SEO)</h3>
+                <p>Boost your website's visibility on search engines with our expert SEO strategies, including keyword research, on-page optimization, and link building to drive organic traffic.</p>
+            </div>
+            <div class="service">
+                <i class="fab fa-facebook-f"></i>
+                <h3>Social Media Marketing (SMM)</h3>
+                <p>Engage your audience and grow your brand across social media platforms with targeted campaigns, content creation, and community management.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-edit"></i>
+                <h3>Content Marketing</h3>
+                <p>Create compelling content that drives traffic and conversions, from blog posts and infographics to whitepapers and eBooks.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-video"></i>
+                <h3>Video Marketing</h3>
+                <p>Produce and distribute engaging videos to captivate your audience, including promotional videos, tutorials, and live streams.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Brand Strategy & Consulting</h3>
+                <p>Develop a strong brand identity and strategic plans for success, including market research, positioning, and messaging.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Online Reputation Management (ORM)</h3>
+                <p>Protect and enhance your online reputation effectively with monitoring, review management, and crisis response strategies.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Local SEO</h3>
+                <p>Optimize for local searches to attract nearby customers, including Google My Business setup and local citation building.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-chart-line"></i>
+                <h3>Conversion Rate Optimization (CRO)</h3>
+                <p>Increase conversions with data-driven optimization techniques, A/B testing, and user experience improvements.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Analytics & Reporting</h3>
+                <p>Track performance and gain insights with detailed analytics using tools like Google Analytics and custom dashboards.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-pen"></i>
+                <h3>Copywriting & Blog Writing</h3>
+                <p>Craft persuasive copy and blogs that resonate with your audience, from website content to email campaigns.</p>
+            </div>
+            <div class="service">
+                <i class="fas fa-users"></i>
+                <h3>Social Media Management</h3>
+                <p>Manage your social media presence for consistent engagement, including posting schedules, ad management, and analytics.</p>
+            </div>
+        </div>
+
+        <section class="process">
+            <h2>Our Process</h2>
+            <div class="process-step">
+                <i class="fas fa-search"></i>
+                <h3>Discovery</h3>
+                <p>We start by understanding your business goals, target audience, and current digital presence through in-depth consultations.</p>
+            </div>
+            <div class="process-step">
+                <i class="fas fa-cogs"></i>
+                <h3>Strategy</h3>
+                <p>Our experts develop a customized strategy tailored to your needs, incorporating the latest trends and best practices.</p>
+            </div>
+            <div class="process-step">
+                <i class="fas fa-rocket"></i>
+                <h3>Implementation</h3>
+                <p>We execute the plan with precision, using advanced tools and techniques to deliver high-quality results.</p>
+            </div>
+            <div class="process-step">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Analysis</h3>
+                <p>Continuous monitoring and analysis ensure optimal performance, with regular reports and adjustments as needed.</p>
+            </div>
+        </section>
+
+        <section class="why-choose">
+            <h2>Why Choose Us?</h2>
+            <ul>
+                <li>Proven track record with over 500 successful projects and a 95% client satisfaction rate.</li>
+                <li>Expert team with years of industry experience and certifications from Google, HubSpot, and more.</li>
+                <li>Customized strategies tailored to your business goals, industry, and budget.</li>
+                <li>Data-driven approach for measurable results, backed by advanced analytics tools.</li>
+                <li>Transparent reporting and ongoing support to keep you informed and engaged.</li>
+                <li>Competitive pricing with high ROI, ensuring you get the best value for your investment.</li>
+                <li>24/7 customer support and flexible packages to meet your evolving needs.</li>
+                <li>Innovation at the core, staying ahead with AI-driven insights and emerging technologies.</li>
+            </ul>
+        </section>
+
+        <section class="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial">
+                <p>"SEO Services Lab transformed our online presence. Our traffic increased by 300% in just six months! Their team is incredibly knowledgeable and responsive."</p>
+                <cite>- John Doe, CEO of Tech Innovations</cite>
+            </div>
+            <div class="testimonial">
+                <p>"Their social media strategies are top-notch. We saw a huge boost in engagement and leads. Highly recommend for any business."</p>
+                <cite>- Jane Smith, Marketing Manager at Retail Corp</cite>
+            </div>
+            <div class="testimonial">
+                <p>"Professional, reliable, and results-oriented. Their SEO services helped us rank #1 for key terms. Outstanding work!"</p>
+                <cite>- Alex Johnson, Founder of Startup Hub</cite>
+            </div>
+            <div class="testimonial">
+                <p>"The video marketing campaign they created went viral and significantly improved our brand awareness. Creative and effective."</p>
+                <cite>- Emily Davis, Brand Director at Fashion Forward</cite>
+            </div>
+            <div class="testimonial">
+                <p>"Their analytics and reporting helped us make informed decisions that drove our sales up by 40%. Essential for growth."</p>
+                <cite>- Michael Brown, Operations Manager at E-Commerce Plus</cite>
+            </div>
+            <div class="testimonial">
+                <p>"Outstanding copywriting services. Our blog now ranks higher and attracts more readers. They truly understand our voice."</p>
+                <cite>- Sarah Wilson, Content Lead at Media Group</cite>
+            </div>
+        </section>
+    </div>
+
+    <div class="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:infoseoserviceslab@gmail.com" style="color: white;">infoseoserviceslab@gmail.com</a></p>
+        <p>Phone: +1 (123) 456-7890</p>
+        <p>Address: 123 Digital Street, Marketing City, MC 12345</p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2023 SEO Services Lab Digital Ltd. All rights reserved.</p>
+    </footer>
+</body>
+</html>        .hero {
             background-image: linear-gradient(rgba(0,123,255,0.8), rgba(0,123,255,0.8)), url('https://via.placeholder.com/1200x400?text=Digital+Marketing+Hero+Image');
             background-size: cover;
             background-position: center;
